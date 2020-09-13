@@ -1,0 +1,17 @@
+designer\AppConfig.class
+endpoint_controllers\PublicController.class
+designer\AuthController.class
+designer\WebSecurityConfig.class
+endpoint_controllers\CallbackController.class
+endpoint_controllers\CRUD_controller.class
+endpoint_controllers\LogoutController.class
+designer\WebConfig.class
+endpoint_controllers\TemplateAsJson.class
+designer\PublicFilter.class
+endpoint_controllers\LoginController.class
+endpoint_controllers\HomeController.class
+designer\Auth0Filter.class
+endpoint_controllers\AccessController.class
+designer\Application.class
+endpoint_controllers\DropboxController.class
+endpoint_controllers\DataController.class
