@@ -23,7 +23,7 @@ public class DataController {
 			@PathVariable("record_id") int record_id
 		) {
 
-		String backend_url = "http://localhost:8080" + "/data/" + database_name + "/" + view_name + "/" + record_id;
+		String backend_url = PublicController.get_backend_domain(request) + "/data/" + database_name + "/" + view_name + "/" + record_id;
 		return PublicController.make_rest_call_GET(backend_url);
 	}
 	
@@ -34,7 +34,7 @@ public class DataController {
 			@PathVariable("database_name") String database_name,
 			@PathVariable("view_name") String view_name
 		) {
-		String backend_url = "http://localhost:8080" + "/data/" + database_name + "/" + view_name;
+		String backend_url = PublicController.get_backend_domain(request) + "/data/" + database_name + "/" + view_name;
 		return PublicController.make_rest_call_GET(backend_url);
 	}
 
@@ -44,7 +44,7 @@ public class DataController {
 			HttpServletRequest request,
 			@PathVariable("database_name") String database_name
 		) {
-		String backend_url = "http://localhost:8080" + "/data/" + database_name + "/model_structure";
+		String backend_url = PublicController.get_backend_domain(request) + "/data/" + database_name + "/model_structure";
 		return PublicController.make_rest_call_GET(backend_url);
 	}
 

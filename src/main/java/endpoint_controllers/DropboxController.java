@@ -32,7 +32,7 @@ public class DropboxController {
 	public void upload_file(@PathVariable("database_name") String database_name,
 			@PathVariable("table_name") String table_name, @PathVariable("row_id") int row_id,
 			HttpServletRequest request, HttpServletResponse response) {
-		String backend_url = "http://localhost:8080/dropbox/uploadREST/" + database_name + "/" + table_name + "/" + row_id;
+		String backend_url = PublicController.get_backend_domain(request) + "/dropbox/uploadREST/" + database_name + "/" + table_name + "/" + row_id;
 		try {
 			response.sendRedirect(backend_url);
 		} catch (IOException e) {
@@ -48,7 +48,7 @@ public class DropboxController {
 			@PathVariable("database_name") String database_name, @PathVariable("file_id") String file_id)
 			throws Exception {
 
-		String backend_url = "https://localhost:8080" + "/dropbox/" + database_name + "/download/" + file_id;
+		String backend_url = PublicController.get_backend_domain(request) + "/dropbox/" + database_name + "/download/" + file_id;
 		PublicController.make_rest_call_GET(backend_url);
 	}
 
@@ -56,7 +56,7 @@ public class DropboxController {
 	@PostMapping("/dropbox/deleteFileREST/{database_name}/{id}")
 	public String deleteFileREST(HttpServletRequest request, @PathVariable("database_name") String database_name,
 			@PathVariable("id") String id) {
-		String backend_url = "http://localhost:8080" + "/dropbox/deleteFileREST/" + database_name + "/" + id;
+		String backend_url = PublicController.get_backend_domain(request) + "/dropbox/deleteFileREST/" + database_name + "/" + id;
 		PublicController.make_rest_call_POST_JSON(backend_url, "{}");
 		return "{}";
 	}

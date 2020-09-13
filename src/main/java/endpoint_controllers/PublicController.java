@@ -40,7 +40,7 @@ public class PublicController {
 			@PathVariable(value = "html_file_path") String html_file_path,
 			@PathVariable(value = "database_name") String database_name
 	) {
-		String backend_url = "http://localhost:8080" + "/models/" + database_name + "/" + html_file_path;
+		String backend_url = PublicController.get_backend_domain(request) + "/models/" + database_name + "/" + html_file_path;
 		TemplateAsJson templateAsJson = make_rest_call_GET_template(backend_url);
 
 		
@@ -52,6 +52,14 @@ public class PublicController {
 	    templateEngine.process("", new Context(), writer);
 	    return writer.toString();
 
+	}
+
+	public static String get_backend_domain(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		if(request.getRequestURI().toLowerCase().contains("localhost")) {
+			return "http://localhost:8080";
+		}
+		return "https://yritysonline-backend.herokuapp.com/";
 	}
 
 	public static String make_rest_call_POST_JSON(String backend_url, String body_json) {

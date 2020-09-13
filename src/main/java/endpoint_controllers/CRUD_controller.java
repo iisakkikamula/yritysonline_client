@@ -38,7 +38,7 @@ public class CRUD_controller {
 			@PathVariable(value="database_name") String database_name,
 			@RequestBody String json
 		) {
-		String backend_url = "http://localhost:8080" + "/CRUD_REST/" + database_name + "/save_record";
+		String backend_url = PublicController.get_backend_domain(request) + "/CRUD_REST/" + database_name + "/save_record";
 		return PublicController.make_rest_call_POST_JSON(backend_url, json);
 	}
 
@@ -53,7 +53,7 @@ public class CRUD_controller {
 			@PathVariable(value="edit_table") String edit_table,
 			@RequestBody String json
 	) {
-		String backend_url = "http://localhost:8080" + "/CRUD_REST/" + database_name + "/" + edit_table + "/create_record_REST";
+		String backend_url = PublicController.get_backend_domain(request) + "/CRUD_REST/" + database_name + "/" + edit_table + "/create_record_REST";
 		return PublicController.make_rest_call_POST_JSON(backend_url, json);
 	}
 
@@ -69,7 +69,7 @@ public class CRUD_controller {
 			@PathVariable(value="record_id") int record_id,
 			@RequestBody String json
 	) {
-		String backend_url = "http://localhost:8080" + "/CRUD_REST/" + database_name + "/" + edit_table + "/" + record_id + "/delete_record_REST";
+		String backend_url = PublicController.get_backend_domain(request) + "/CRUD_REST/" + database_name + "/" + edit_table + "/" + record_id + "/delete_record_REST";
 		return PublicController.make_rest_call_POST_JSON(backend_url, json);
 	}
 
