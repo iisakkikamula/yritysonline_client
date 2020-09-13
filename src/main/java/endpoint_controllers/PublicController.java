@@ -59,7 +59,7 @@ public class PublicController {
 		if(request.getRequestURI().toLowerCase().contains("localhost")) {
 			return "http://localhost:8080";
 		}
-		return "https://yritysonline-backend.herokuapp.com/";
+		return "https:/yritysonline-backend.herokuapp.com/";
 	}
 
 	public static String make_rest_call_POST_JSON(String backend_url, String body_json) {
